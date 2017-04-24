@@ -1,5 +1,6 @@
 {
 	"name": "akai-mpk-mini-editor",
+	"description": "Akai MPK Mini editor using Web MIDI api",
 	"version": "0.1.0",
 	"private": true,
 	"author": "Goran Ljubojevic",
