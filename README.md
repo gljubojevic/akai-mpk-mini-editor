@@ -1,5 +1,5 @@
-## Akai MPK Mini editor
+# Akai MPK Mini preset editor
 
-This editor is for Akai MPK mini controller using Web MIDI api.
+This preset editor is for [Akai MPK mini controller](http://www.akaipro.com/product/mpkmini) using [Web MIDI Api](https://www.w3.org/TR/webmidi/).
 
-# TODO
+## TODO
