@@ -27,9 +27,6 @@
 	top:10%;
 	left:10%;
 	border-radius: 50%;
-	/*
-	border: solid 0.25em #0e0e0e;
-	*/
 	background: linear-gradient(-46deg,#131313, #3d3d3d);
 }
 
@@ -77,7 +74,6 @@
 	height: 100%;
 	top: 0%;
 	left: 0%;
-	z-index: 5;
 	overflow: hidden;
 }
 

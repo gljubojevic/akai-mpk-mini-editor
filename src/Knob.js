@@ -64,12 +64,12 @@ class Knob extends Component {
 			transform: 'rotate(' + valueAngle.toFixed(1) + 'deg)'
 		}
 		return (
-			<div className="knob" onWheel={this.handleWheel}>
+			<div className="knob">
 				<div className="ticks">{ticks}</div>
 				<div className="lbl">{this.props.label}</div>
 				<div className="min">{this.props.minLabel}</div>
 				<div className="max">{this.props.maxLabel}</div>
-				<div className="base">
+				<div className="base"  onWheel={this.handleWheel}>
 					<div className="handle" style={handleStyle} />
 				</div>
 			</div>

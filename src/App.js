@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Knob from './Knob.js'
+import Pad from './Pad.js'
 import './App.css';
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
 					<h1>AKAI MPK mini editor</h1>
 				</header>
 				<Knob value={0} />
+				<Pad value={0} />
 			</div>
 		);
 	}
