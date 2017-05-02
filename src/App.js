@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Knob from './Knob.js'
-import Pad from './Pad.js'
+import Knob from './component/Knob.js'
+import Pad from './component/Pad.js'
+import NumberInput from './component/NumberInput.js'
 import './App.css';
 
 class App extends Component {
@@ -12,6 +13,8 @@ class App extends Component {
 				</header>
 				<Knob value={0} />
 				<Pad value={0} />
+				<NumberInput />
+				<NumberInput label="Test" />
 			</div>
 		);
 	}
