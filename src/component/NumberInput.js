@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-//  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 class NumberInput extends Component {
 	constructor(props, context) {
 		super(props, context);
@@ -12,9 +11,15 @@ class NumberInput extends Component {
 	}
 
 	handleChange(e) {
+		//e.preventDefault();
+		// TODO: Validation
+		//if ("" === e.target.value) {
+		//	return;
+		//}
 		this.setState({value: e.target.value});
 	}
 
+	//  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 	render() {
 		if (this.props.label.length > 0) {
 			return (

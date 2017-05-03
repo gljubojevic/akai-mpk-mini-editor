@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Knob from './component/Knob.js'
 import Pad from './component/Pad.js'
-import NumberInput from './component/NumberInput.js'
+import KnobEdit from './component/KnobEdit.js'
+import PadEdit from './component/PadEdit.js'
 import './App.css';
 
 class App extends Component {
@@ -12,9 +13,9 @@ class App extends Component {
 					<h1>AKAI MPK mini editor</h1>
 				</header>
 				<Knob value={0} />
+				<KnobEdit label="Knob1" />
 				<Pad value={0} />
-				<NumberInput />
-				<NumberInput label="Test" />
+				<PadEdit label="Pad1" />
 			</div>
 		);
 	}

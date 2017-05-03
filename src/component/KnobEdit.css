@@ -1,0 +1,20 @@
+.knobEdit {
+ 	position: relative;
+	width: 200px;
+	height: 200px;
+	background: #181818;
+	color: #fff;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+.knobEdit label {
+	display: block;
+    float: none;
+    clear: both;
+	padding: 1% 8%;
+}
+
+.knobEdit label input {
+    float: right;
+}
