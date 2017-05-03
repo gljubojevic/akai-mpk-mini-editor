@@ -7,4 +7,5 @@ This preset editor is for [Akai MPK mini controller](http://www.akaipro.com/prod
 ## References
 
 [ECMAScript 6 — New Features: Overview & Comparison](http://es6-features.org/)
+
 [React docs](https://facebook.github.io/react/docs/hello-world.html)
