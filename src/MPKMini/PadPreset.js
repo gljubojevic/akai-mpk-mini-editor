@@ -1,8 +1,9 @@
-class PadSettings {
-	constructor(note=0, pc=0, cc=0) {
+class PadPreset {
+	constructor(note=0, pc=0, cc=0, isToggle=false) {
 		this._note = note;
 		this._pc = pc;
 		this._cc = cc;
+		this._isToggle = isToggle;
 	}
 
 	get note() {
@@ -25,6 +26,13 @@ class PadSettings {
 	set cc(value) {
 		this._cc = value;
 	}
+
+	get isToggle() {
+		return this._isToggle;
+	}
+	set isToggle(value) {
+		this._isToggle = value;
+	}
 }
 
-export default PadSettings;
+export default PadPreset;

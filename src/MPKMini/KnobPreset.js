@@ -1,4 +1,4 @@
-class KnobSettings {
+class KnobPreset {
 	constructor(cc=0, lo=0, hi=0) {
 		this._cc = cc;
 		this._lo = lo;
@@ -27,4 +27,4 @@ class KnobSettings {
 	}
 }
 
-export default KnobSettings;
+export default KnobPreset;
