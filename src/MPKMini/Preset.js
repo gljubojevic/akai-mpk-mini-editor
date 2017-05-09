@@ -2,15 +2,15 @@ import PadPreset from './PadPreset';
 import KnobPreset from './KnobPreset';
 
 class Preset {
-	constructor(name="Preset", padCh=1, padBank1=null, padBank2=null, knobs=null) {
+	constructor(name="Preset", padCh=1, padBank1=this._initPads(6), padBank2=this._initPads(6), knobs=this._initKnobs(6)) {
 		this._name = name;
 		this._padCh = padCh;
-		this._padBank1 = padBank1 || this.initPads(6);
-		this._padBank2 = padBank2 || this.initPads(6);
-		this._knobs = knobs || this.initKnobs(6);
+		this._padBank1 = padBank1;
+		this._padBank2 = padBank2;
+		this._knobs = knobs;
 	}
 
-	initPads(no){
+	_initPads(no){
 		var pads = [];
 		for (var i = 0; i < no; i++) {
 			pads.push(new PadPreset());
@@ -18,7 +18,7 @@ class Preset {
 		return pads;
 	}
 
-	initKnobs(no){
+	_initKnobs(no){
 		var knobs = [];
 		for (var i = 0; i < no; i++) {
 			knobs.push(new KnobPreset());
