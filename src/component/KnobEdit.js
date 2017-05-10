@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import KnobSettings from '../MPKMini/KnobSettings.js'
+import KnobPreset from '../MPKMini/KnobPreset.js'
 import NumberInput from './NumberInput.js'
 import './KnobEdit.css'
 
@@ -8,7 +8,7 @@ class KnobEdit extends Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
-			settings: props.settings
+			preset: props.preset
 		}
 	}
 
@@ -16,21 +16,21 @@ class KnobEdit extends Component {
 		return (
 			<div className="knobEdit">
 				<div className="lbl">{this.props.label}</div>
-				<NumberInput label="CC" max={127} value={this.state.settings.cc} />
-				<NumberInput label="Low" max={127} value={this.state.settings.lo} />
-				<NumberInput label="Hi" max={127} value={this.state.settings.hi} />
+				<NumberInput label="CC" max={127} value={this.state.preset.cc} />
+				<NumberInput label="Low" max={127} value={this.state.preset.lo} />
+				<NumberInput label="Hi" max={127} value={this.state.preset.hi} />
 			</div>
 		);
 	}
 }
 
 KnobEdit.defaultProps = {
-	settings: new KnobSettings(),
+	preset: new KnobPreset(),
 	label: "Knob"
 };
 
 KnobEdit.propTypes = {
-	settings: PropTypes.instanceOf(KnobSettings),
+	preset: PropTypes.instanceOf(KnobPreset),
 	label: PropTypes.string
 };
 

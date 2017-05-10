@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import PadSettings from '../MPKMini/PadSettings.js'
+import PadPreset from '../MPKMini/PadPreset.js'
 import NumberInput from './NumberInput.js'
 import './PadEdit.css'
 
@@ -8,7 +8,7 @@ class PadEdit extends Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
-			settings: props.settings
+			preset: props.preset
 		}
 	}
 
@@ -16,21 +16,21 @@ class PadEdit extends Component {
 		return (
 			<div className="padEdit">
 				<div className="lbl">{this.props.label}</div>
-				<NumberInput label="Note #" max={127} value={this.state.settings.note} />
-				<NumberInput label="PC #" max={127} value={this.state.settings.pc} />
-				<NumberInput label="CC #" max={127} value={this.state.settings.cc} />
+				<NumberInput label="Note #" max={127} value={this.state.preset.note} />
+				<NumberInput label="PC #" max={127} value={this.state.preset.pc} />
+				<NumberInput label="CC #" max={127} value={this.state.preset.cc} />
 			</div>
 		);
 	}
 }
 
 PadEdit.defaultProps = {
-	settings: new PadSettings(),
+	preset: new PadPreset(),
 	label: "Pad"
 };
 
 PadEdit.propTypes = {
-	settings: PropTypes.instanceOf(PadSettings),
+	preset: PropTypes.instanceOf(PadPreset),
 	label: PropTypes.string
 };
 
