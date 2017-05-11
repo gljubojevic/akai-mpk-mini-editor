@@ -2,7 +2,7 @@ import PadPreset from './PadPreset';
 import KnobPreset from './KnobPreset';
 
 class Preset {
-	constructor(name="Preset", padCh=1, padBank1=this._initPads(6), padBank2=this._initPads(6), knobs=this._initKnobs(6)) {
+	constructor(name="Preset", padCh=1, padBank1=this._initPads(8), padBank2=this._initPads(8), knobs=this._initKnobs(8)) {
 		this._name = name;
 		this._padCh = padCh;
 		this._padBank1 = padBank1;
