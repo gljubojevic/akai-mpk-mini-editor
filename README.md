@@ -2,7 +2,18 @@
 
 This preset editor is for [Akai MPK mini controller](http://www.akaipro.com/product/mpkmini) using [Web MIDI Api](https://www.w3.org/TR/webmidi/).
 
+For demo/test go to [https://gljubojevic.github.io/akai-mpk-mini-editor/](https://gljubojevic.github.io/akai-mpk-mini-editor/)
+
 ## TODO
+
+- Pad bank component
+- Knob group component
+- Akai MPK mini component
+- WebMid bridge class
+- MIDI In selection component
+- MIDI Out selection component
+
+... rest will be defined later
 
 ## References
 
