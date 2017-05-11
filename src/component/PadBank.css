@@ -1,9 +1,9 @@
 .padBank{
-    float: none;
-    clear: both;
+	float: none;
+	clear: both;
 	background: #181818;
 }
 
 .padBank .pad {
-    float: left;
+	float: left;
 }

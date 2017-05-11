@@ -1,9 +1,9 @@
 .knobBank{
-    float: none;
-    clear: both;
+	float: none;
+	clear: both;
 	background: #181818;
 }
 
 .knobBank .knob {
-    float: left;
+	float: left;
 }
