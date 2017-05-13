@@ -18,8 +18,12 @@ class KnobBank extends Component {
 
 	render() {
 		const knobs = this.state.knobs.map(this.renderKnob);
+		let className = "knobBank";
+		if (this.props.className.length > 0) {
+			className += " " + this.props.className;
+		}
 		return (
-			<fieldset className="knobBank">
+			<fieldset className={className}>
 				<legend>{this.props.label}</legend>
 				{knobs}
 			</fieldset>
@@ -29,12 +33,14 @@ class KnobBank extends Component {
 
 KnobBank.defaultProps = {
 	knobs: [],
-	label: "Bank"
+	label: "Bank",
+	className: ""
 };
 
 KnobBank.propTypes = {
 	knobs: PropTypes.array,
-	label: PropTypes.string
+	label: PropTypes.string,
+	className: PropTypes.string
 };
 
 export default KnobBank;

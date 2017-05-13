@@ -1,9 +1,26 @@
-.padBank{
+.padBank {
 	float: none;
 	clear: both;
 	background: #181818;
+	border-radius: 1em;
 }
 
 .padBank .pad {
 	float: left;
+}
+
+.padBankA {
+	border-color: #f00;
+}
+
+.padBankA legend {
+	color:  #f00;
+}
+
+.padBankB {
+	border-color: #0f0;
+}
+
+.padBankB legend {
+	color:  #0f0;
 }

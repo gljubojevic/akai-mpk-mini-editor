@@ -30,8 +30,12 @@ class PadBank extends Component {
 			}
 			return null;
 		});
+		let className = "padBank";
+		if (this.props.className.length > 0) {
+			className += " " + this.props.className;
+		}
 		return (
-			<fieldset className="padBank">
+			<fieldset className={className}>
 				<legend>{this.props.label}</legend>
 				{padsTop}
 				{padsBottom}
@@ -42,12 +46,14 @@ class PadBank extends Component {
 
 PadBank.defaultProps = {
 	pads: [],
-	label: "Bank"
+	label: "Bank",
+	className: ""
 };
 
 PadBank.propTypes = {
 	pads: PropTypes.array,
-	label: PropTypes.string
+	label: PropTypes.string,
+	className: PropTypes.string
 };
 
 export default PadBank;

@@ -10,6 +10,6 @@ export function noteValue(noteName) {
 	const noteParse = /([CDEFGAB]#?)(\d*)/g;
 	const [, note, octave] = noteParse.exec(noteName);
 	const n = note.match().input;
-	const o = parseInt(octave.match().input);
-	return o * 12 + noteNames.findIndex(x => x == n);
+	const o = parseInt(octave.match().input,10);
+	return o * 12 + noteNames.findIndex(x => x === n);
 }

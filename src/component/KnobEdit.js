@@ -16,9 +16,11 @@ class KnobEdit extends Component {
 		return (
 			<div className="knobEdit">
 				<div className="lbl">{this.props.label}</div>
-				<NumberInput label="CC" max={127} value={this.state.preset.cc} />
-				<NumberInput label="Low" max={127} value={this.state.preset.lo} />
-				<NumberInput label="Hi" max={127} value={this.state.preset.hi} />
+				<div className="brd">
+					<NumberInput label="CC" max={127} value={this.state.preset.cc} />
+					<NumberInput label="Low" max={127} value={this.state.preset.lo} />
+					<NumberInput label="Hi" max={127} value={this.state.preset.hi} />
+				</div>
 			</div>
 		);
 	}

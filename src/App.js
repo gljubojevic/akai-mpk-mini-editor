@@ -33,8 +33,8 @@ class App extends Component {
 					<h1>Editor</h1>
 				</header>
 				<KnobBank label="Knobs" knobs={this.state.activePreset.knobs}/>
-				<PadBank label="Bank 1" pads={this.state.activePreset.padBank1}/>
-				<PadBank label="Bank 2" pads={this.state.activePreset.padBank2}/>
+				<PadBank label="Bank 1" className="padBankA" pads={this.state.activePreset.padBank1}/>
+				<PadBank label="Bank 2" className="padBankB" pads={this.state.activePreset.padBank2}/>
 				<Knob value={0} />
 				<KnobEdit label="Knob1" />
 				<Pad value={0} />
