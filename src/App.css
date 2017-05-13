@@ -4,4 +4,14 @@
 
 .App header {
 	text-align: left;
+	min-height: 62px;
+	background-color: #1A1C1E;
+	background-image: url('./img/mpkmini_logo.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+.App header h1 {
+	padding: 10px 10px;
+	text-transform: uppercase;
 }

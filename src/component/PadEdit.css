@@ -8,13 +8,35 @@
 	overflow: hidden;
 }
 
+.padEdit .lbl {
+	position: absolute;
+	top: 2%;
+	left: 2%;
+	font-size: 0.8em;
+	text-transform: uppercase;
+}
+
 .padEdit label {
 	display: block;
     float: none;
     clear: both;
-	padding: 1% 8%;
+	padding: 4% 8%;
 }
 
 .padEdit label input {
     float: right;
+}
+
+.padEdit .brd {
+	position: absolute;
+	width: 72%;
+	height: 72%;
+	bottom: 5%;
+	left: 8%;
+	border-style: solid;
+	border-width: 0.5em;
+	border-color: #a22;
+	border-radius: 5%;
+	padding: 2% 2%;
+	box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
 }

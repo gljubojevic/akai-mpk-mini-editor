@@ -30,7 +30,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header>
-					<h1>AKAI MPK mini editor</h1>
+					<h1>Editor</h1>
 				</header>
 				<KnobBank label="Knobs" knobs={this.state.activePreset.knobs}/>
 				<PadBank label="Bank 1" pads={this.state.activePreset.padBank1}/>

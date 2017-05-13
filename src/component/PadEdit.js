@@ -16,9 +16,11 @@ class PadEdit extends Component {
 		return (
 			<div className="padEdit">
 				<div className="lbl">{this.props.label}</div>
-				<NumberInput label="Note #" max={127} value={this.state.preset.note} />
-				<NumberInput label="PC #" max={127} value={this.state.preset.pc} />
-				<NumberInput label="CC #" max={127} value={this.state.preset.cc} />
+				<div className="brd">
+					<NumberInput label="Note #" max={127} value={this.state.preset.note} />
+					<NumberInput label="PC #" max={127} value={this.state.preset.pc} />
+					<NumberInput label="CC #" max={127} value={this.state.preset.cc} />
+				</div>
 			</div>
 		);
 	}
