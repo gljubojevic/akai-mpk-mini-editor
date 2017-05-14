@@ -1,5 +1,5 @@
 class PadPreset {
-	constructor(note=0, pc=0, cc=0, isToggle=false) {
+	constructor(note=0, pc=0, cc=0, isToggle=true) {
 		this._note = note;
 		this._pc = pc;
 		this._cc = cc;

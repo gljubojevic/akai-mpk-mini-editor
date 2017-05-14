@@ -1,7 +1,14 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background: #000;
-  color: #fff;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: #000;
+	color: #fff;
+}
+
+.cln {
+	float: none;
+	clear: both;
+	height: 0px;
+	overflow: hidden;
 }

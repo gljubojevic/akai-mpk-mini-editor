@@ -10,6 +10,26 @@ class KnobEdit extends Component {
 		this.state = {
 			preset: props.preset
 		}
+		this.hanndleCC = this.hanndleCC.bind(this);
+		this.hanndleLo = this.hanndleLo.bind(this);
+		this.hanndleHi = this.hanndleHi.bind(this);
+	}
+
+	changePreset(change){
+		const newPreset = Object.assign(this.state.preset,change)
+		this.setState({preset:newPreset});
+	}
+
+	hanndleCC(value){
+		this.changePreset({cc: value});
+	}
+
+	hanndleLo(value){
+		this.changePreset({lo: value});
+	}
+
+	hanndleHi(value){
+		this.changePreset({hi: value});
 	}
 
 	render() {
@@ -17,9 +37,9 @@ class KnobEdit extends Component {
 			<div className="knobEdit">
 				<div className="lbl">{this.props.label}</div>
 				<div className="brd">
-					<NumberInput label="CC" max={127} value={this.state.preset.cc} />
-					<NumberInput label="Low" max={127} value={this.state.preset.lo} />
-					<NumberInput label="Hi" max={127} value={this.state.preset.hi} />
+					<NumberInput label="CC" max={127} value={this.state.preset.cc} onChange={this.hanndleCC} />
+					<NumberInput label="Low" max={127} value={this.state.preset.lo} onChange={this.hanndleLo} />
+					<NumberInput label="Hi" max={127} value={this.state.preset.hi} onChange={this.hanndleHi} />
 				</div>
 			</div>
 		);

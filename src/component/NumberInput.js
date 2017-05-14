@@ -11,25 +11,25 @@ class NumberInput extends Component {
 	}
 
 	handleChange(e) {
-		//e.preventDefault();
+		e.preventDefault();
+		const newValue = parseInt(e.target.value, 10);
 		// TODO: Validation
-		//if ("" === e.target.value) {
+		//if (isNaN(newValue)) {
 		//	return;
 		//}
-		this.setState({value: e.target.value});
+		this.setState({value: newValue});
+		// Lift state up
+		if (this.props.onChange) {
+			this.props.onChange(newValue);
+		}
 	}
 
 	//  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 	render() {
-		if (this.props.label.length > 0) {
-			return (
-				<label>{this.props.label}<input type="number" value={this.state.value} min={this.props.min} max={this.props.max} onChange={this.handleChange} /></label>
-			);
-		} else {
-			return (
-				<input type="number" value={this.state.value} min={this.props.min} max={this.props.max} onChange={this.handleChange} />
-			);
-		}
+		const lbl = this.props.label.length === 0 ? "&nbsp;" : this.props.label;
+		return (
+			<label>{lbl}<input type="number" value={this.state.value} min={this.props.min} max={this.props.max} onChange={this.handleChange} /><div className="cln" /></label>
+		);
 	}
 }
 
