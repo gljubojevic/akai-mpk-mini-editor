@@ -47,7 +47,7 @@ class PadEdit extends Component {
 					<NoteInput label="Note" max={127} value={this.state.preset.note} onChange={this.hanndleNote} />
 					<NumberInput label="PC #" max={127} value={this.state.preset.pc} onChange={this.hanndlePC} />
 					<NumberInput label="CC #" max={127} value={this.state.preset.cc} onChange={this.hanndleCC} />
-					<ToggleSelectInput labelTrue="Toggle" labelFalse="Momentary" value={this.state.preset.isToggle} onChange={this.hanndleIsToggle} />
+					<ToggleSelectInput className="full" labelTrue="Toggle" labelFalse="Momentary" value={this.state.preset.isToggle} onChange={this.hanndleIsToggle} />
 				</div>
 			</div>
 		);

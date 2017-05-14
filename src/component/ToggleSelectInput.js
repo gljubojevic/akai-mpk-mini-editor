@@ -22,22 +22,29 @@ class ToggleSelectInput extends Component {
 
 	render() {
 		return (
-			<select value={this.state.value} onChange={this.handleChange}>
-				<option key="True" value={true}>{this.props.labelTrue}</option>
-				<option key="False" value={false}>{this.props.labelFalse}</option>
-			</select>
+			<label className={this.props.className}>{this.props.label}
+				<select value={this.state.value} onChange={this.handleChange}>
+					<option key="True" value={true}>{this.props.labelTrue}</option>
+					<option key="False" value={false}>{this.props.labelFalse}</option>
+				</select>
+				<div className="cln" />
+			</label>
 		);
 	}
 }
 
 ToggleSelectInput.defaultProps = {
 	value: true,
+	label: null,
+	className: null,
 	labelTrue: "True",
 	labelFalse: "False"
 };
 
 ToggleSelectInput.propTypes = {
 	value: PropTypes.bool,
+	label: PropTypes.string,
+	className: PropTypes.string,
 	labelTrue: PropTypes.string,
 	labelFalse: PropTypes.string
 };

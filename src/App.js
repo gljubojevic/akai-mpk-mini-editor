@@ -5,6 +5,7 @@ import KnobEdit from './component/KnobEdit.js'
 import PadEdit from './component/PadEdit.js'
 import PadBank from './component/PadBank.js'
 import KnobBank from './component/KnobBank.js'
+import ArpeggioEdit from './component/ArpeggioEdit.js'
 import Preset from './MPKMini/Preset.js'
 import './App.css';
 
@@ -32,6 +33,7 @@ class App extends Component {
 				<header>
 					<h1>Editor</h1>
 				</header>
+				<ArpeggioEdit preset={this.state.activePreset.arpeggio} />
 				<Pad value={0} />
 				<PadEdit label="Pad1" />
 				<Knob value={0} />
