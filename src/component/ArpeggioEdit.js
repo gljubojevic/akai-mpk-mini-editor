@@ -4,6 +4,7 @@ import ArpeggioPreset from '../MPKMini/ArpeggioPreset.js'
 import NumberInput from './NumberInput.js'
 import SelectInput from './SelectInput.js'
 import ToggleSelectInput from './ToggleSelectInput.js'
+import ToggleButtonInput from './ToggleButtonInput.js'
 import './ArpeggioEdit.css';
 
 class ArpeggioEdit extends Component {
@@ -19,6 +20,8 @@ class ArpeggioEdit extends Component {
 		this.hanndleIsLatch = this.hanndleIsLatch.bind(this);
 		this.hanndleTimeDivision = this.hanndleTimeDivision.bind(this);
 		this.hanndleMode = this.hanndleMode.bind(this);
+		this.hanndleSwing = this.hanndleSwing.bind(this);
+		this.hanndleIsEnambed = this.hanndleIsEnambed.bind(this);
 	}
 
 	changePreset(change){
@@ -54,17 +57,29 @@ class ArpeggioEdit extends Component {
 		this.changePreset({mode: value});
 	}
 
+	hanndleSwing(value){
+		this.changePreset({swing: value});
+	}
+
+	hanndleIsEnambed(value){
+		this.changePreset({isEnabled: value});
+	}
+
 	render() {
 		return (
 			<fieldset className="ArpeggioEdit">
 				<legend>{this.props.label}</legend>
 				<NumberInput label="Tempo" min={30} max={240} value={this.state.preset.tempo} onChange={this.hanndleTempo} />
-				<NumberInput label="Tempo taps" min={2} max={4} value={this.state.preset.tempoTaps} onChange={this.hanndleTempoTaps} />
 				<NumberInput label="Octave" min={0} max={3} value={this.state.preset.octave} onChange={this.hanndleOctave} />
-				<ToggleSelectInput label="Sync" labelTrue="Internal" labelFalse="External" value={this.state.preset.isInternalSync} onChange={this.hanndleIsInternalSync} />
-				<ToggleSelectInput label="Latch" labelTrue="On" labelFalse="Off" value={this.state.preset.isLatch} onChange={this.hanndleIsLatch} />
+				<ToggleButtonInput label="On / Off" classActive="active" value={this.state.preset.isEnabled} onChange={this.hanndleIsEnambed} />
+
 				<SelectInput label="Time division" options={this.state.preset.timeDivisionOptions} value={this.state.preset.timeDivision} onChange={this.hanndleTimeDivision} />
 				<SelectInput label="Mode" options={this.state.preset.modeOptions} value={this.state.preset.mode} onChange={this.hanndleMode} />
+				<NumberInput label="Tempo taps" min={2} max={4} value={this.state.preset.tempoTaps} onChange={this.hanndleTempoTaps} />
+
+				<SelectInput label="Swing" options={this.state.preset.swingOptions} value={this.state.preset.swing} onChange={this.hanndleSwing} />
+				<ToggleSelectInput label="Latch" labelTrue="On" labelFalse="Off" value={this.state.preset.isLatch} onChange={this.hanndleIsLatch} />
+				<ToggleSelectInput label="Clock" labelTrue="Internal" labelFalse="External" value={this.state.preset.isInternalSync} onChange={this.hanndleIsInternalSync} />
 			</fieldset>
 		);
 	}

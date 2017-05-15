@@ -12,3 +12,7 @@ body {
 	height: 0px;
 	overflow: hidden;
 }
+
+/* Mac OS Fixes */
+input:focus { outline: none; }
+button:focus { outline: none; }

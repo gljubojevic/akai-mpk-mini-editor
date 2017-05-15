@@ -30,9 +30,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<header>
-					<h1>Editor</h1>
-				</header>
+				<header><h1>Editor</h1></header>
 				<ArpeggioEdit preset={this.state.activePreset.arpeggio} />
 				<Pad value={0} />
 				<PadEdit label="Pad1" />

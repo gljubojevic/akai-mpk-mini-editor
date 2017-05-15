@@ -1,5 +1,5 @@
 class ArpeggioPreset {
-	constructor(octave=0, isEnabled=false, mode=0, timeDivision=0, isInternalSync=true, isLatch=false, tempoTaps=3, tempo=128) {
+	constructor(octave=0, isEnabled=false, mode=0, timeDivision=0, isInternalSync=true, isLatch=false, tempoTaps=3, tempo=128, swing=0) {
 		this._octave = octave;
 		this._isEnabled = isEnabled;
 		this._mode = mode;
@@ -7,7 +7,9 @@ class ArpeggioPreset {
 		this._isInternalSync = isInternalSync;
 		this._isLatch = isLatch;
 		this._tempoTaps = tempoTaps;
-		this._tempo = tempo;	
+		this._tempo = tempo;
+		// For MPK Mini MkII Only
+		this._swing = swing;
 	}
 
 	// ARP OCTAVE – Click this field to select the number of octaves (0-3) that an arpeggio will span. If this number is larger
@@ -95,6 +97,19 @@ class ArpeggioPreset {
 	}
 	set tempo(value) {
 		this._tempo = value;
+	}
+
+	// SWING - To set the arpeggiator's swing, click the Swing field, and select the desired setting from the pop-up menu: 
+	// 50% (no swing), 55%, 57%, 59%, 61%, or 64%.
+	get swing() {
+		return this._swing;
+	}
+	set swing(value) {
+		this._swing = value;
+	}
+
+	get swingOptions(){
+		return ['50%','55%','57%','59%','61%','64%'];
 	}
 }
 

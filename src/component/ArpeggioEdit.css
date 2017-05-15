@@ -4,3 +4,31 @@
 	background: #181818;
 	border-radius: 1em;
 }
+
+.ArpeggioEdit button {
+	color: #fff;
+	border-style: solid;
+	border-width: 0.2em;
+	border-color: #ccc;
+	border-radius: 5%;
+	background: linear-gradient(-46deg,#131313, #3d3d3d);
+	box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+}
+
+.ArpeggioEdit button.active {
+	border-color: #f11;
+}
+
+.ArpeggioEdit label {
+	display: block;
+	width: 30%;
+	float: left;
+	padding: 0% 0% 1% 2%;
+}
+
+.ArpeggioEdit label input,
+.ArpeggioEdit label select,
+.ArpeggioEdit label button {
+	float: right;
+	width: 40%;
+}
