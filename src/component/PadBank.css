@@ -3,6 +3,12 @@
 	clear: both;
 	background: #181818;
 	border-radius: 1em;
+	font-size: 16px;
+}
+
+.padBank legend {
+	font-size: 1.2em;
+	text-transform: uppercase;
 }
 
 .padBank .pad {

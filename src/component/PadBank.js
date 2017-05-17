@@ -31,7 +31,7 @@ class PadBank extends Component {
 			return null;
 		});
 		let className = "padBank";
-		if (this.props.className.length > 0) {
+		if (this.props.className) {
 			className += " " + this.props.className;
 		}
 		return (
@@ -47,7 +47,7 @@ class PadBank extends Component {
 PadBank.defaultProps = {
 	pads: [],
 	label: "Bank",
-	className: ""
+	className: null
 };
 
 PadBank.propTypes = {

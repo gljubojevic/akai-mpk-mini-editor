@@ -31,14 +31,14 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header><h1>Editor</h1></header>
+				<PadBank label="Bank 1" className="padBankA" pads={this.state.activePreset.padBank1}/>
+				<PadBank label="Bank 2" className="padBankB" pads={this.state.activePreset.padBank2}/>
 				<ArpeggioEdit preset={this.state.activePreset.arpeggio} />
 				<Pad value={0} />
 				<PadEdit label="Pad1" />
 				<Knob value={0} />
 				<KnobEdit label="Knob1" />
 				<KnobBank label="Knobs" knobs={this.state.activePreset.knobs}/>
-				<PadBank label="Bank 1" className="padBankA" pads={this.state.activePreset.padBank1}/>
-				<PadBank label="Bank 2" className="padBankB" pads={this.state.activePreset.padBank2}/>
 			</div>
 		);
 	}

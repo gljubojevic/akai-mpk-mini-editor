@@ -1,23 +1,23 @@
 .pad {
 	position: relative;
-	width: 200px;
-	height: 200px;
+	width: 12em;
+	height: 12em;
 	background: #181818;
 	color: #fff;
-	font-size: 16px;
+	font-size: 1em;
 	overflow: hidden;
 }
 
 .pad .btn {
 	position: absolute;
-	width: 76%;
-	height: 76%;
-	bottom: 5%;
-	left: 8%;
+	width: 9.10em;
+	height: 9.10em;
+	bottom: 0.6em;
+	left: 0.96em;
 	border-style: solid;
 	border-width: 0.5em;
 	border-color: #ccc;
-	border-radius: 5%;
+	border-radius: 0.6em;
 	background: linear-gradient(-46deg,#131313, #3d3d3d);
 	box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
 /*	transition: all 180ms ease-out; */
@@ -31,8 +31,8 @@
 
 .pad .lbl {
 	position: absolute;
-	top: 2%;
-	left: 2%;
-	font-size: 0.8em;
+	top: 0.24em;
+	left:0.24em;
+	font-size: 0.7em;
 	text-transform: uppercase;
 }
