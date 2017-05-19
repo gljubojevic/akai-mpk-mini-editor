@@ -5,6 +5,7 @@
 	border-radius: 1em;
 }
 
-.knobBank .knob {
+.knobBank .knob,
+.knobBank .knobEdit {
 	float: left;
 }

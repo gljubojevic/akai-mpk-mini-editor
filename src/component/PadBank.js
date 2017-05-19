@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Pad from './Pad.js'
+import Pad from './Pad.js';
+import PadEdit from './PadEdit.js';
 import './PadBank.css';
 
 class PadBank extends Component {
-	constructor(props, context) {
-		super(props, context);
-		this.state = {
-			pads: props.pads,
-		}
-	}
 
 	renderPad(pad, index){
 		const label = 'Pad ' + (index+1);
-		return <Pad key={index.toString()} label={label} />
+		if (this.props.edit) {
+			return (<PadEdit key={index.toString()} label={label} preset={pad} />);
+		}
+		return (<Pad key={index.toString()} label={label} preset={pad} />);
 	}
 
 	render() {
-		const groupLength = this.state.pads.length >> 1;
-		const padsTop = this.state.pads.map((pad, index) => {
+		const groupLength = this.props.pads.length >> 1;
+		const padsTop = this.props.pads.map((pad, index) => {
 			if (index >= groupLength) {
 				return this.renderPad(pad, index)
 			}
 			return null;
 		});
-		const padsBottom = this.state.pads.map((pad, index) => {
+		const padsBottom = this.props.pads.map((pad, index) => {
 			if (index < groupLength) {
 				return this.renderPad(pad, index)
 			}
@@ -47,13 +45,15 @@ class PadBank extends Component {
 PadBank.defaultProps = {
 	pads: [],
 	label: "Bank",
-	className: null
+	className: null,
+	edit: false
 };
 
 PadBank.propTypes = {
 	pads: PropTypes.array,
 	label: PropTypes.string,
-	className: PropTypes.string
+	className: PropTypes.string,
+	edit: PropTypes.bool
 };
 
 export default PadBank;

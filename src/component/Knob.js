@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import KnobPreset from '../MPKMini/KnobPreset.js'
 import './Knob.css';
 
 class Knob extends Component {
@@ -78,6 +79,7 @@ class Knob extends Component {
 }
 
 Knob.defaultProps = {
+	preset: new KnobPreset(),
 	value: 0,
 	min: 0,
 	max: 255,
@@ -91,6 +93,7 @@ Knob.defaultProps = {
 }
 
 Knob.propTypes = {
+	preset: PropTypes.instanceOf(KnobPreset),
 	value: PropTypes.number,
 	min: PropTypes.number,
 	max: PropTypes.number,

@@ -11,7 +11,8 @@
 	text-transform: uppercase;
 }
 
-.padBank .pad {
+.padBank .pad,
+.padBank .padEdit {
 	float: left;
 }
 

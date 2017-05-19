@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import PadPreset from '../MPKMini/PadPreset.js'
 import './Pad.css';
 
 class Pad extends Component {
@@ -48,6 +49,7 @@ Pad.defaultProps = {
 	value: 0,
 	min: 0,
 	max: 255,
+	preset: new PadPreset(),
 	label: "Pad"
 };
 
@@ -55,6 +57,7 @@ Pad.propTypes = {
 	value: PropTypes.number,
 	min: PropTypes.number,
 	max: PropTypes.number,
+	preset: PropTypes.instanceOf(PadPreset),
 	label: PropTypes.string
 };
 
