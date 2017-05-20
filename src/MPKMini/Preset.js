@@ -42,6 +42,10 @@ class Preset {
 		this._name = value;
 	}
 
+
+	// To select the MIDI channel over which all of the knobs send their messages, click the Keybed / Controls MIDI Channel 
+	// field at the bottom of the window, and type the desired MIDI channel number (1 – 16). This affects the knobs, X-Y Contoller 
+	// (joystick), and keyboard.
 	get keyKnobCh() {
 		return this._keyKnobCh;
 	}
@@ -49,6 +53,8 @@ class Preset {
 		this._keyKnobCh = value;
 	}
 
+	// To select the MIDI channel over which all of the pads send their messages, click the Pad MIDI Channel field at the bottom of the window, 
+	// and type the desired MIDI channel number (1 – 16).
 	get padCh() {
 		return this._padCh;
 	}
@@ -56,6 +62,9 @@ class Preset {
 		this._padCh = value;
 	}
 
+	// To change the keyboard's octave, click the Octave field under the keyboard, and type the desired value (-4 to +4 octaves) 
+	// (this is the same as using your MPK mini's Octave buttons). An octave of 0 means the keyboard is at its center/default octave.
+	// For reference, the leftmost key will display its note value to indicate the octave shift.
 	get keyOctave() {
 		return this._keyOctave;
 	}
@@ -63,6 +72,8 @@ class Preset {
 		this._keyOctave = value;
 	}
 
+	// To transpose the keyboard, click the Transpose field under the keyboard, and type the desired value (-12 to +12 semitones). 
+	// A transposition of 0 means the keyboard is not transposed. For reference, the leftmost key will display its note value to indicate the transposition.
 	get keyTranspose() {
 		return this._keyTranspose;
 	}
