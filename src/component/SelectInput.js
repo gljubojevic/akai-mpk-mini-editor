@@ -27,7 +27,7 @@ class SelectInput extends Component {
 	render() {
 		const options = this.props.options.map(this.renderOption);
 		return (
-			<label>{this.props.label}
+			<label><span>{this.props.label}</span>
 				<select value={this.state.value} onChange={this.handleChange}>{options}</select>
 				<div className="cln" />
 			</label>

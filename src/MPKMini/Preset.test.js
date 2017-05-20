@@ -3,7 +3,10 @@ import Preset from './Preset';
 it('New preset', () => {
 	const p = new Preset();
 	expect(p.name).toEqual('Preset');
+	expect(p.keyKnobCh).toEqual(1);
 	expect(p.padCh).toEqual(1);
+	expect(p.keyOctave).toEqual(0);
+	expect(p.keyTranspose).toEqual(0);
 	testKnobs(p.knobs, 6);
 	testPadBank(p.padBank1, 6);
 	testPadBank(p.padBank2, 6);

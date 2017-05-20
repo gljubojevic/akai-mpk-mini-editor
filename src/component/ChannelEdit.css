@@ -1,0 +1,17 @@
+.ChannelEdit {
+    font-size: 16px;
+	padding: 1% 0% 1% 0%;
+}
+
+.ChannelEdit label {
+	display: block;
+    font-size: 1em;
+}
+
+.ChannelEdit .padCh {
+    float: left;
+}
+
+.ChannelEdit .keyKnobCh {
+    float: right;
+}

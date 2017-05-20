@@ -43,8 +43,8 @@ class NoteInput extends Component {
 		const lbl = this.props.label.length === 0 ? "&nbsp;" : this.props.label;
 		return (
 			<div>
-				<label>{lbl}<select value={this.state.value} onChange={this.handleChange}>{allNotes}</select><div className="cln" /></label>
-				<label>&nbsp;<input type="number" value={this.state.value} min={this.props.min} max={this.props.max} onChange={this.handleChange} /><div className="cln" /></label>
+				<label><span>{lbl}</span><select value={this.state.value} onChange={this.handleChange}>{allNotes}</select><div className="cln" /></label>
+				<label><span>&nbsp;</span><input type="number" value={this.state.value} min={this.props.min} max={this.props.max} onChange={this.handleChange} /><div className="cln" /></label>
 			</div>
 		);
 	}

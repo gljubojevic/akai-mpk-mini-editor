@@ -6,6 +6,7 @@ import PadEdit from './component/PadEdit.js'
 import PadBank from './component/PadBank.js'
 import KnobBank from './component/KnobBank.js'
 import ArpeggioEdit from './component/ArpeggioEdit.js'
+import ChannelEdit from './component/ChannelEdit.js'
 import Preset from './MPKMini/Preset.js'
 import './App.css';
 
@@ -33,6 +34,7 @@ class App extends Component {
 				<header><h1>Editor</h1></header>
 				<PadBank edit={true} label="Bank 1" className="padBankA" pads={this.state.activePreset.padBank1}/>
 				<PadBank label="Bank 2" className="padBankB" pads={this.state.activePreset.padBank2}/>
+				<ChannelEdit preset={this.state.activePreset} />
 				<ArpeggioEdit preset={this.state.activePreset.arpeggio} />
 				<Pad value={0} />
 				<PadEdit label="Pad1" />

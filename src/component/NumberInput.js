@@ -28,7 +28,7 @@ class NumberInput extends Component {
 	render() {
 		const lbl = this.props.label.length === 0 ? "&nbsp;" : this.props.label;
 		return (
-			<label>{lbl}<input type="number" value={this.state.value} min={this.props.min} max={this.props.max} onChange={this.handleChange} /><div className="cln" /></label>
+			<label className={this.props.className}><span>{lbl}</span><input type="number" value={this.state.value} min={this.props.min} max={this.props.max} onChange={this.handleChange} /><div className="cln" /></label>
 		);
 	}
 }
@@ -38,7 +38,8 @@ NumberInput.defaultProps = {
 	min: 0,
 	max: 255,
 	step: 1,
-	label: ""
+	label: "",
+	className: null
 };
 
 NumberInput.propTypes = {
@@ -46,7 +47,8 @@ NumberInput.propTypes = {
 	min: PropTypes.number,
 	max: PropTypes.number,
 	step: PropTypes.number,
-	label: PropTypes.string
+	label: PropTypes.string,
+	className: PropTypes.string
 };
 
 export default NumberInput;
