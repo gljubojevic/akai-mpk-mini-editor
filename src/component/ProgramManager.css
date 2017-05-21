@@ -1,0 +1,54 @@
+.programManager {
+	display: block;
+	font-size: 1em;
+	list-style: none;
+	padding: 0;
+}
+
+.programManager li {
+	position: relative;
+	text-align: center;
+	padding: 1em 0;
+	border: 0.0625em solid #eee;
+	border-bottom: none;
+}
+
+.programManager li:first-child {
+	border-radius: 1em 1em 0 0;
+}
+
+.programManager li:last-child {
+	border-bottom: 0.0625em solid #eee;
+	border-radius: 0 0 1em 1em;
+}
+
+.programManager li div {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:-0.5em;
+}
+
+.programManager li.ram {
+	padding: 0.5em 0;
+}
+
+.programManager li div span{
+	background: #000;
+	padding: 0 0.2em;
+}
+
+.programManager li button {
+	margin: 0 0.5em;
+	color: #fff;
+	border-style: solid;
+	border-width: 0.2em;
+	border-color: #ccc;
+	border-radius: 5%;
+	background: linear-gradient(-46deg,#131313, #3d3d3d);
+	box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+}
+
+.programManager li button:active {
+	border-color: #f11;
+}

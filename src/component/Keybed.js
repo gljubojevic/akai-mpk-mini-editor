@@ -85,10 +85,16 @@ class Keybed extends Component {
 
 Keybed.defaultProps = {
 	preset: new Preset(),
+	onChange: null,
+	onNoteOn: null,
+	onNoteOff: null
 };
 
 Keybed.propTypes = {
 	preset: PropTypes.instanceOf(Preset),
+	onChange: PropTypes.func,
+	onNoteOn: PropTypes.func,
+	onNoteOff: PropTypes.func
 };
 
 export default Keybed;
