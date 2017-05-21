@@ -1,18 +1,35 @@
 .knobEdit {
  	position: relative;
-	width: 200px;
-	height: 200px;
+	width: 12em;
+	height: 12em;
 	background: #181818;
 	color: #fff;
-	font-size: 16px;
+	font-size: 1em;
 	overflow: hidden;
+}
+
+.knobEdit .brd {
+	position: absolute;
+	width: 8.86em;
+	height: 8.86em;
+	bottom: 0.36em;
+	left: 0.96em;
+	border-style: solid;
+	border-width: 0.5em;
+	border-color: #444;
+	border-radius: 0.6em;
+	padding: 0.24em 0.24em;
+	box-shadow: 
+		0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset,
+		0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset,
+		0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
 }
 
 .knobEdit .lbl {
 	position: absolute;
-	top: 2%;
-	left: 2%;
-	font-size: 0.8em;
+	top: 0.24em;
+	left: 0.24em;
+	font-size: 0.7em;
 	text-transform: uppercase;
 }
 
@@ -25,14 +42,9 @@
 
 .knobEdit label input {
     float: right;
-	width: 50%;
+	width: 55%;
+	font-size: 0.8em;
+	border-width: 0.06em;
+	padding: 0.06em;
 }
 
-.knobEdit .brd {
-	position: absolute;
-	width: 72%;
-	height: 72%;
-	bottom: 5%;
-	left: 8%;
-	padding: 2% 2%;
-}

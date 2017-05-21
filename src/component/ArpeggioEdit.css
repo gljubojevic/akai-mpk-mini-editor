@@ -5,6 +5,10 @@
 	border-radius: 1em;
 }
 
+.ArpeggioEdit legend {
+	font-size: 1.2em;
+}
+
 .ArpeggioEdit button {
 	color: #fff;
 	border-style: solid;

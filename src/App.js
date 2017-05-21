@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import Knob from './component/Knob.js'
-import Pad from './component/Pad.js'
-import KnobEdit from './component/KnobEdit.js'
-import PadEdit from './component/PadEdit.js'
 import PadBank from './component/PadBank.js'
 import KnobBank from './component/KnobBank.js'
 import ArpeggioEdit from './component/ArpeggioEdit.js'
@@ -33,16 +29,17 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header><h1>Editor</h1></header>
-				<KeybedEdit preset={this.state.activePreset}/>
-				<PadBank edit={true} label="Bank 1" className="padBankA" pads={this.state.activePreset.padBank1}/>
-				<PadBank label="Bank 2" className="padBankB" pads={this.state.activePreset.padBank2}/>
-				<ChannelEdit preset={this.state.activePreset} />
-				<ArpeggioEdit preset={this.state.activePreset.arpeggio} />
-				<Pad value={0} />
-				<PadEdit label="Pad1" />
-				<Knob value={0} />
-				<KnobEdit label="Knob1" />
-				<KnobBank edit={true} label="Knobs" knobs={this.state.activePreset.knobs}/>
+				<div className="right">
+					<KnobBank edit={true} label="Knobs" knobs={this.state.activePreset.knobs}/>
+					<KeybedEdit preset={this.state.activePreset}/>
+					<ArpeggioEdit preset={this.state.activePreset.arpeggio} />
+				</div>
+				<div className="left">
+					<PadBank edit={true} label="Bank 1" className="padBankA" pads={this.state.activePreset.padBank1}/>
+					<PadBank edit={true} label="Bank 2" className="padBankB" pads={this.state.activePreset.padBank2}/>
+					<ChannelEdit preset={this.state.activePreset} />
+				</div>
+				<div className="cln" />
 			</div>
 		);
 	}

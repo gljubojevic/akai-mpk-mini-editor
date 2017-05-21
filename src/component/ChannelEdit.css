@@ -1,11 +1,10 @@
 .ChannelEdit {
-    font-size: 16px;
+    font-size: 1em;
 	padding: 1% 0% 1% 0%;
 }
 
 .ChannelEdit label {
 	display: block;
-    font-size: 1em;
 }
 
 .ChannelEdit .padCh {

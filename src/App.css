@@ -1,5 +1,8 @@
 .App {
-	padding: 20px;
+	font-size: 12px;
+	width: 101em;
+	padding: 0;
+	margin: 0 auto;
 }
 
 .App header {
@@ -12,6 +15,16 @@
 }
 
 .App header h1 {
-	padding: 10px 10px;
+	padding: 0px 10px;
 	text-transform: uppercase;
+}
+
+.App > .left {
+	float: left;
+	width: 50.4em;
+}
+
+.App > .right {
+	float: right;
+	width: 50.4em;
 }

@@ -2,7 +2,7 @@ ul.keybed {
 	list-style:none;
 	position:relative;
 	box-sizing:border-box; 
-	font-size: 15px;
+	font-size: 1em;
 	width: 60em;
 	height: 18em;
 	margin:0 auto;
@@ -55,7 +55,7 @@ ul.keybed li:active {
 }
 
 ul.keybed li.black {
-	height: 9em;
+	height: 11em;
 	width: 2em;
 	margin:0 -1em 0 -1em;
 	z-index:2;

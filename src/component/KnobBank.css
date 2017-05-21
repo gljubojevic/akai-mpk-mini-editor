@@ -3,6 +3,11 @@
 	clear: both;
 	background: #181818;
 	border-radius: 1em;
+	font-size: 1em;
+}
+
+.knobBank legend {
+	font-size: 1.2em;
 }
 
 .knobBank .knob,
