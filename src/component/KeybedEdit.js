@@ -36,8 +36,8 @@ class KeybedEdit extends Component {
 		return (
 			<div className="KeybedEdit">
 				<Keybed preset={this.state.preset} />
-				<NumberInput label="Transpose " min={-12} max={12} value={this.state.preset.keyTranspose} onChange={this.hanndleKeyTranspose} />
-				<NumberInput label="Octave " min={-4} max={4} value={this.state.preset.keyOctave} onChange={this.hanndleKeyOctave} />
+				<NumberInput className="transpose" label="Transpose " min={-12} max={12} value={this.state.preset.keyTranspose} onChange={this.hanndleKeyTranspose} />
+				<NumberInput className="octave" label="Octave " min={-4} max={4} value={this.state.preset.keyOctave} onChange={this.hanndleKeyOctave} />
 				<div className="cln" />
 			</div>
 		);

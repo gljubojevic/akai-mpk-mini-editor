@@ -1,3 +1,19 @@
-.KeybedEdit{
+.KeybedEdit {
     font-size: 16px;
+    text-align: center;
+}
+
+.KeybedEdit .keybed {
+    margin-bottom: 0.3em;
+    font-size: 1em;
+}
+
+.KeybedEdit .transpose,.octave {
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.KeybedEdit .octave {
+    display: inline-block;
+    margin-left: 5%;
 }
