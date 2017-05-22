@@ -6,10 +6,8 @@ For demo/test go to [https://gljubojevic.github.io/akai-mpk-mini-editor/](https:
 
 ## TODO
 
-- Pad bank component
-- Knob group component
-- Akai MPK mini component
-- WebMid bridge class
+- Akai MPK mini component, this App.js now
+- WebMIDI bridge class
 - MIDI In selection component
 - MIDI Out selection component
 
@@ -21,7 +19,9 @@ For demo/test go to [https://gljubojevic.github.io/akai-mpk-mini-editor/](https:
 
 [React docs](https://facebook.github.io/react/docs/hello-world.html)
 
+Web MIDI API
+- Editor draft [https://webaudio.github.io/web-midi-api/](https://webaudio.github.io/web-midi-api/)
+- Latest published [https://www.w3.org/TR/webmidi/](https://www.w3.org/TR/webmidi/)
+
 Piano keys
-- [http://codepen.io/zastrow/pen/oDBki](http://codepen.io/zastrow/pen/oDBki)
-- [http://codepen.io/LFeh/pen/oDEki](http://codepen.io/LFeh/pen/oDEki)
-- [http://codepen.io/peterssonjesper/pen/gHdAp](http://codepen.io/peterssonjesper/pen/gHdAp)
+- Nice example [http://codepen.io/zastrow/pen/oDBki](http://codepen.io/zastrow/pen/oDBki)

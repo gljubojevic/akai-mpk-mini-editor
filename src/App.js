@@ -6,6 +6,7 @@ import ChannelEdit from './component/ChannelEdit.js'
 import KeybedEdit from './component/KeybedEdit.js'
 import ProgramManager from './component/ProgramManager.js'
 import Preset from './MPKMini/Preset.js'
+import WebMIDI from './midi/WebMIDI.js'
 import './App.css';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
 		super(props, context);
 		const defPresets = this.initPresets();
 		this.state = {
+			webMIDI: new WebMIDI(),
 			presets: defPresets,
 			activePreset: defPresets[0]
 		}
