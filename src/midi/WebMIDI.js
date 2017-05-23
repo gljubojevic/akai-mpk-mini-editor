@@ -55,7 +55,7 @@ class WebMIDI {
 		}
 		// New port is set
 		this._midiInput.onmidimessage = this.onMIDIMessage.bind(this);
-		console.log("MIDI input selected", this._midiInput.name);
+		console.log("MIDI input selected", this._midiInput.name, this._midiOutput.manufacturer);
 		if (this._onInputSelected) {
 			this._onInputSelected(this._midiInput);
 		}
@@ -65,7 +65,15 @@ class WebMIDI {
 		return this._midiOutput;
 	}
 	set midiOutput(value){
+		// Reselect same port
+		if (this._midiOutput === value) {
+			return;
+		}
 		this._midiOutput = value;
+		console.log("MIDI output selected", this._midiOutput.name, this._midiOutput.manufacturer);
+		if (this._onOutputSelected) {
+			this._onOutputSelected(this._midiOutput);
+		}
 	}
 
 	// All avaliable MIDI Inputs on current access
@@ -108,8 +116,11 @@ class WebMIDI {
 		this.midiOptions = options;
 		this.midiAccess.onstatechange = this.onStateChange.bind(this);
 
+		console.log(options);
+
 		// Select Input/Output
-		this.inputMIDISelect();
+		this.inputSelect();
+		this.outputSelect();
 	}
 
 	// No web midi access
@@ -127,7 +138,9 @@ class WebMIDI {
 
 	onStateChange(e) {
 		console.log(e);
-		this.inputMIDISelect();
+		// Select Input/Output
+		this.inputSelect();
+		this.outputSelect();
 	}
 
 	// MIDI Message received
@@ -139,20 +152,7 @@ class WebMIDI {
 		}
 	}
 
-	// reset old midi input when disconencted
-	resetInput(){
-		if (!this.midiInput) {
-			return;
-		}
-		if ("disconnected" !== this.midiInput.state) {
-			return;
-		}
-		this.midiInput.onmidimessage = null;
-		this.midiInput = null;
-	}
-
 	isPrefered(name) {
-		console.log("isPrefered",name);
 		const checkName = name.toString().toLowerCase();
 		for (var i = 0; i < this.preferedDevices.length; i++) {
 			const device = this.preferedDevices[i].toLowerCase();
@@ -175,16 +175,25 @@ class WebMIDI {
 	}
 
 	// preselect midi input
-	inputMIDISelect(){
-		this.resetInput();
+	inputSelect(){
 		const inputs = this.allInputs;
-		console.log("MIDI inputs", inputs);
 		const input = this.findPreferedPort(inputs);
 		if (!input) {
 			console.log("MIDI no prefered inputs");
 			return;
 		}
 		this.midiInput = input;
+	}
+
+	// preselect midi input
+	outputSelect(){
+		const outputs = this.allOutputs;
+		const output = this.findPreferedPort(outputs);
+		if (!output) {
+			console.log("MIDI no prefered outputs");
+			return;
+		}
+		this.midiOutput = output;
 	}
 }
 
