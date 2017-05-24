@@ -14,6 +14,16 @@ class App extends Component {
 		this.state = {
 			MPKMini: new MPKMini()
 		}
+		this.handleProgramGet = this.handleProgramGet.bind(this);
+		this.handleProgramSend = this.handleProgramGet.bind(this);
+	}
+
+	handleProgramGet(prg) {
+		this.state.MPKMini.programGet(prg);
+	}
+
+	handleProgramSend(prg) {
+		this.state.MPKMini.programSend(prg);
 	}
 
 	render() {
@@ -21,7 +31,10 @@ class App extends Component {
 			<div className="App">
 				<header><h1>Editor</h1></header>
 				<div className="col1">
-					<ProgramManager hasRamProgram={this.state.MPKMini.hasRamPreset} />
+					<ProgramManager 
+						hasRamProgram={this.state.MPKMini.hasRamPreset} 
+						onProgramGet={this.handleProgramGet} 
+						onProgramSend={this.handleProgramSend} />
 				</div>
 				<div className="col2">
 					<KnobBank edit={true} label="Knobs" knobs={this.state.MPKMini.preset.knobs}/>

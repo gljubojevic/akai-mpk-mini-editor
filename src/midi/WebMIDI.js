@@ -1,10 +1,11 @@
 class WebMIDI {
-	constructor(notSupported = null, onInputSelected = null, onOutputSelected = null, onMessage = null, preferedDevices=["MPK mini"]) {
+	constructor(notSupported = null, onInputSelected = null, onOutputSelected = null, onMessage = null, onError = null, preferedDevices=["MPK mini"]) {
 		// Callbacks, consider promise?
 		this._notSupported = notSupported;
 		this._onMessage = onMessage;
 		this._onInputSelected = onInputSelected;
 		this._onOutputSelected = onOutputSelected; 
+		this._onError = onError;
 		// Init MIDI
 		this.initMIDI();
 		// Members
@@ -194,6 +195,25 @@ class WebMIDI {
 			return;
 		}
 		this.midiOutput = output;
+	}
+
+	errorNotify(err){
+		console.error(err);
+		if (this._onError) {
+			this._onError(err);
+		}
+	}
+
+	// Send data to out port
+	sendMIDI(data) {
+		try {
+			if (!this._midiOutput) {
+				throw new Error("No MIDI output selected");
+			}
+			this._midiOutput.send(data);
+		} catch (error) {
+			this.errorNotify(error);
+		}
 	}
 }
 

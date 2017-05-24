@@ -10,14 +10,10 @@ class MPKMini {
 			this.midiError,
 			null,
 			null,
-			this.midiMessage
+			this.midiMessage,
+			this.midiError
 		);
 	}
-
-	// Get Preset1 F0 47 7F 7C 63 00 01 01 F7
-	// Get Preset2 F0 47 7F 7C 63 00 01 02 F7
-	// Get Preset3 F0 47 7F 7C 63 00 01 03 F7
-	// Get Preset4 F0 47 7F 7C 63 00 01 04 F7
 
 	initPresets(noPresets){
 		let presets = [];
@@ -36,6 +32,19 @@ class MPKMini {
 	}
 	set preset(value) {
 		this._presets[this._activePreset] = value;
+	}
+
+	programGet(prg){
+		// Program number is 8-ght byte, value is 0x01 - 0x04, and Ram program is 0x00
+		let sysExGet = new Uint8Array([0xF0, 0x47, 0x7F, 0x7C, 0x63, 0x00, 0x01, 0x00, 0xF7])
+		if (prg !== "ram") {
+			sysExGet[7] = parseInt(prg, 10) + 1; //TODO: Make true index on UI
+		}
+		this._webMIDI.sendMIDI(sysExGet);
+	}
+
+	programSend(prg){
+
 	}
 
 	midiError(error) {

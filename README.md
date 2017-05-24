@@ -4,6 +4,17 @@ This preset editor is for [Akai MPK mini controller](http://www.akaipro.com/prod
 
 For demo/test go to [https://gljubojevic.github.io/akai-mpk-mini-editor/](https://gljubojevic.github.io/akai-mpk-mini-editor/)
 
+## Akai MPK Mini SysEx
+
+Get preset SysEx bytes: F0 47 7F 7C 63 00 01 XX F7  
+XX marks preset number 0x01 - 0x04
+
+- Get Preset 1 SysEx: F0 47 7F 7C 63 00 01 01 F7
+- Get Preset 2 SysEx: F0 47 7F 7C 63 00 01 02 F7
+- Get Preset 3 SysEx: F0 47 7F 7C 63 00 01 03 F7
+- Get Preset 4 SysEx: F0 47 7F 7C 63 00 01 04 F7
+
+
 ## TODO
 
 - Akai MPK mini component, this App.js now
