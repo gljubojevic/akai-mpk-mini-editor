@@ -30,13 +30,6 @@ class WebMIDI {
 		this._midiAccess = value;
 	}
 
-	get midiOptions(){
-		return this._midiOptions;
-	}
-	set midiOptions(value){
-		this._midiOptions = value;
-	}
-
 	get midiInput(){
 		return this._midiInput;
 	}
@@ -107,17 +100,14 @@ class WebMIDI {
 	}
 
 	// WebMMIDI access acquired
-	onMIDIStarted(access, options){
+	onMIDIStarted(access){
 		if (!access.sysexEnabled) {
 			this.notSupported(Error("Sysex not enabled"));
 			return;	
 		}
 		// Continue init
 		this.midiAccess = access;
-		this.midiOptions = options;
 		this.midiAccess.onstatechange = this.onStateChange.bind(this);
-
-		console.log(options);
 
 		// Select Input/Output
 		this.inputSelect();
