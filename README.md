@@ -70,6 +70,8 @@ Preset 4 Chromatic From 60
 
 CSS
 - Nice text transition [https://webaudiodemos.appspot.com/slides/webmidi.html#/15](https://webaudiodemos.appspot.com/slides/webmidi.html#/15)
+- Nice menu [https://codepen.io/dhanushbadge/pen/olsvi](https://codepen.io/dhanushbadge/pen/olsvi)
+- Nice menu effect [https://codepen.io/sethabbott/pen/cewzF](https://codepen.io/sethabbott/pen/cewzF)
 
 MIDI
 - [https://www.midi.org/](https://www.midi.org/)

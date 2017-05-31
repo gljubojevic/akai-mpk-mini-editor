@@ -5,6 +5,7 @@ import ArpeggioEdit from './component/ArpeggioEdit.js'
 import ChannelEdit from './component/ChannelEdit.js'
 import KeybedEdit from './component/KeybedEdit.js'
 import ProgramManager from './component/ProgramManager.js'
+import MainMenu from './component/MainMenu.js'
 import MPKMini from './MPKMini/MPKMini.js'
 import './App.css';
 
@@ -30,6 +31,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header><h1>Editor</h1></header>
+				<MainMenu />
 				<div className="col1">
 					<ProgramManager 
 						hasRamProgram={this.state.MPKMini.hasRamPreset} 

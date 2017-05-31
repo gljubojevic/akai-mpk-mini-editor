@@ -63,16 +63,18 @@ class MPKMini {
 
 	}
 
-	logSysEx(sysEx, isHex) {
-		let data = '';
-		for (var i = 0; i < sysEx.length; i++) {
-			let byte = sysEx[i].toString(10);
+	msgToString(msg, isHex) {
+		let str = '';
+		for (var i = 0; i < msg.length; i++) {
+			var byte;
 			if (isHex) {
-				byte = ('0' + sysEx[i].toString(16)).substr(-2);
+				byte = ('0' + msg[i].toString(16)).substr(-2);
+			} else {
+				byte = msg[i].toString(10);
 			}
-			data += byte.toUpperCase() + ' ';
+			str += byte.toUpperCase() + ' ';
 		}
-		return data;
+		return str;
 	}
 
 	parsePresetFile(name, data) {
@@ -81,7 +83,7 @@ class MPKMini {
 		for (var i = 0; i < bytes.length; i++) {
 			sysEx[i] = parseInt(bytes[i], 10);
 		}
-		console.log(name, this.logSysEx(sysEx, true));
+		console.log(name, this.msgToString(sysEx, true));
 		return sysEx;
 	}
 
