@@ -7,15 +7,17 @@
 
 .App header {
 	text-align: left;
-	min-height: 62px;
+	min-height: 5.3em;
 	background-color: #1A1C1E;
 	background-image: url('./img/mpkmini_logo.png');
 	background-repeat: no-repeat;
 	background-position: top right;
+	margin: 0;
 }
 
 .App header h1 {
-	padding: 0px 10px;
+	margin: 0;
+	padding: 0.5em;
 	text-transform: uppercase;
 }
 

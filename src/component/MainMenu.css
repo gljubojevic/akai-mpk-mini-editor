@@ -1,7 +1,11 @@
 .mainmenu {
 	float: none;
 	clear: both;
-	border: 1px solid red;
+	position: relative;
+	height: 1.6em;
+	font-size: 1.1em;
+	border-top: 1px solid #a00;
+	margin: 0 0 0.5em 0;
 }
 
 .mainmenu ul,
@@ -12,48 +16,53 @@
 
 .mainmenu ul {
 	width: 100%;
-	background: gray;
 	list-style: none;
 	position: absolute;
+	z-index: 100;
+	background: linear-gradient(-46deg,#131313, #3d3d3d);
 }
 
 .mainmenu li {
-	float: left;
 	position: relative;
-	width:auto;
-}
-
-.mainmenu li:hover ul {
-	display: block;
 }
 
 .mainmenu a {
-	background: #30A6E6;
-	color: #FFFFFF;
+	color: #fff;
 	display: block;
-	font: bold 1.5em sans-serif;
-	padding: 0.2em 0.5em;
 	text-align: center;
 	text-decoration: none;
+	white-space: nowrap;
+	padding: 0.2em 1.5em;
 	transition: all .25s ease;
 }
 
-.mainmenu li:hover a {
+.mainmenu li:hover {
 	background: #000000;
 }
 
-.mainmenu ul ul {
+.mainmenu ul > li {
+	display: inline-block;
+	vertical-align: top;
+	width: auto;
+}
+
+.mainmenu ul > li > ul {
+	text-align: left;
+	width: auto;
+	display: none;
+	position: absolute;
+	top: 100%;
 	left: 0;
-	display:none;
-	z-index: 1;
 }
-.mainmenu ul ul > li {
-	float: none;
+
+.mainmenu ul > li > ul > li {
+	display: block;
 }
-/*
-#submenu a:hover {
-	background: #DF4B05;
+
+.mainmenu ul > li > ul > li > a {
+	text-align: left;
 }
-#submenu a {
-	background-color:#000000;
-}*/
+
+.mainmenu ul > li:hover > ul {
+	display: block;
+}
