@@ -16,7 +16,7 @@ class App extends Component {
 			MPKMini: new MPKMini()
 		}
 		this.handleProgramGet = this.handleProgramGet.bind(this);
-		this.handleProgramSend = this.handleProgramGet.bind(this);
+		this.handleProgramSend = this.handleProgramSend.bind(this);
 	}
 
 	handleProgramGet(prg) {
@@ -31,7 +31,9 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header><h1>Editor</h1></header>
-				<MainMenu />
+				<MainMenu
+					onProgramGet={this.handleProgramGet}
+					onProgramSend={this.handleProgramSend} />
 				<div className="col1">
 					<ProgramManager 
 						hasRamProgram={this.state.MPKMini.hasRamPreset} 

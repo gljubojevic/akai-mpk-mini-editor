@@ -45,8 +45,8 @@ class MPKMini {
 	programGet(prg){
 		// Program number is 8-ght byte, value is 0x01 - 0x04, and Ram program is 0x00
 		let sysExGet = new Uint8Array([0xF0, 0x47, 0x7F, 0x7C, 0x63, 0x00, 0x01, 0x00, 0xF7])
-		if (prg !== "ram") {
-			sysExGet[7] = parseInt(prg, 10) + 1; //TODO: Make true index on UI
+		if (prg !== "0") {
+			sysExGet[7] = parseInt(prg, 10); 
 		}
 		this._webMIDI.sendMIDI(sysExGet);
 	}

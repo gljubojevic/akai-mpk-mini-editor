@@ -5,9 +5,9 @@ import './ProgramManager.css'
 class ProgramManager extends Component {
 	constructor(props, context) {
 		super(props, context);
-		let idx = Array.from(Array(props.programs), (_,x) => x);
+		let idx = Array.from(Array(props.programs), (_,x) => x+1); // program numbers are 1 to n
 		if (this.props.hasRamProgram) {
-			idx.push("ram");
+			idx.push(0); // RAM program is 0 index
 		}
 		this.state = {
 			programIndex: idx
@@ -22,7 +22,6 @@ class ProgramManager extends Component {
 		if (this.props.onProgramGet) {
 			this.props.onProgramGet(prg);
 		}
-		//console.log("Program Get", prg);
 	}
 
 	handleSend(e){
@@ -31,18 +30,17 @@ class ProgramManager extends Component {
 		if (this.props.onProgramSend) {
 			this.props.onProgramSend(prg);
 		}
-		//console.log("Program Send", prg);
 	}
 
 	renderProgram(no){
-		if (no === "ram") {
+		if (no === 0) {
 			return (
 				<li key={no} className="ram">
 					<button data-prgno={no} onClick={this.handleSend}>{this.props.labelSendToRam}</button>
 				</li>
 			);
 		}
-		const lbl = "Program " + (no + 1);
+		const lbl = "Program " + no;
 		return(
 			<li key={no}>
 				<div><span>{lbl}</span></div>
