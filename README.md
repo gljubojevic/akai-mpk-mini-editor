@@ -14,23 +14,91 @@ XX marks preset number 0x01 - 0x04
 - Get Preset 3 SysEx: F0 47 7F 7C 63 00 01 03 F7
 - Get Preset 4 SysEx: F0 47 7F 7C 63 00 01 04 F7
 
-Set preset SysEx bytes:
+Preset SysEx bytes description:
 
-- Preset is 110 bytes
+- Preset SysEx is 110 bytes long
+- Byte 000 - 006 are SysEx preset command F0 47 7F 7C 61 00 66
+- Byte 007 is preset number 01-04
+- Byte 008 is Pad MIDI channel 00 - 15
+- Byte 009 is Key and Knobs MIDI channel 00 - 15
+- Byte 010 is Octave -4 to 4, values from 00 - 08
+	- Octave of -4, value == 0
+	- Default Octave is 0, value == 4
+	- Octave of 4, value == 8
+- Byte 011 is Transposition -12 to 12, values from 00 - 24
+	- Transposition of -12, value == 00
+	- Default Transposition is 0, value == 12
+	- Transposition of 12, value == 24
+- Byte 012 - 020 are Arpeggio settings
+	- Byte 012 Arpeggio enable
+		- 00 - Disabled
+		- 01 - Enabled
+	- Byte 013 Arpeggio Mode, values 00 - 05
+		- 00 - Up
+		- 01 - Down
+		- 02 - Inclusive
+		- 03 - Exclusive
+		- 04 - Random
+		- 05 - Order
+	- Byte 014 Arpeggio Time Division, values 00 - 07
+		- 00 - 1/4 Note
+		- 01 - 1/4 Triplet
+		- 02 - 1/8 Note
+		- 03 - 1/8 Triplet
+		- 04 - 1/16 Note
+		- 05 - 1/16 Triplet
+		- 06 - 1/32 Note
+		- 07 - 1/32 Triplet
+	- Byte 015 Arpeggio Clock, values 00 - 01
+		- 00 - Internal
+		- 01 - External
+	- Byte 016 Arpeggio Latch, values 00 - 01
+		- 00 - Disable
+		- 01 - Enable
+	- Byte 017 Arpeggio Tempo Taps, values 02 - 04  
+	- Byte 018 - 019 Arpeggio Tempo, 2 bytes, value 30 - 240 BPM
+		- Byte 018 Hi byte of Tempo -> Tempo / 128
+		- Byte 019 Lo byte of Tempo -> Tempo % 128 (rest of division by 128)
+	- Byte 020 Arpeggion octave 00 - 03
+- Byte 021 - 052 are Pad Bank 1, 32 bytes long (8 Pads x 4 bytes long)
+	- Each Pad setting is 4 bytes long
+	- Byte 00 - note
+	- Byte 01 - PC
+	- Byte 02 - CC
+	- Byte 03 - Type, 00 - Mometary, 01 - Toggle
+- Byte 053 - 084 are Pad Bank 2, 32 bytes long (8 Pads x 4 bytes long)
+- Byte 085 - 108 are Knobs, (8 Knobs x 3 bytes long)
+	- Each Knob setting is 3 bytes long
+	- Byte 00 - CC
+	- Byte 01 - Low
+	- Byte 02 - High
+- Byte 109 is SysEx end F7
 
-Preset1Chromatic  
+Original factory presets as HEX bytes.
+
+Preset1Chromatic
+```
 F0 47 7F 7C 61 00 66 01 09 00 04 0C 00 00 04 01 00 03 00 78 00 24 00 14 00 25 01 15 00 26 02 16 00 27 03 17 00 28 04 18 00 29 05 19 00 2A 06 1A 00 2B 07 1B 00 2C 08 1C 00 2D 09 1D 00 2E 0A 1E 00 2F 0B 1F 00 30 0C 23 00 31 0D 24 00 32 0E 25 00 33 0F 26 00 11 00 7F 12 00 7F 13 00 7F 14 00 7F 0D 00 7F 0E 00 7F 0F 00 7F 10 00 7F F7 
+```
 
-Preset2WhiteKeys  
+Preset2WhiteKeys
+```
 F0 47 7F 7C 61 00 66 02 09 00 04 0C 00 00 05 00 00 03 00 78 00 30 00 01 00 32 01 02 00 34 02 03 00 35 03 04 00 37 04 05 00 39 05 06 00 3B 06 08 00 3C 07 09 00 3E 08 0A 00 40 09 0B 00 41 0A 0C 00 43 0B 0D 00 45 0C 0E 00 47 0D 0F 00 48 0E 10 00 4A 0F 11 00 11 00 7F 12 00 7F 13 00 7F 14 00 7F 0D 00 7F 0E 00 7F 0F 00 7F 10 00 7F F7 
+```
 
-Preset3MPC  
+Preset3MPC
+```
 F0 47 7F 7C 61 00 66 03 09 00 04 0C 00 01 05 00 00 03 00 78 00 25 00 01 00 24 01 02 00 2A 02 03 00 52 03 04 00 28 04 05 00 26 05 06 00 2E 06 08 00 2C 07 09 00 30 08 0A 00 2F 09 0B 00 2D 0A 0C 00 2B 0B 0D 00 31 0C 0E 00 37 0D 0F 00 33 0E 10 00 35 0F 11 00 11 00 7F 12 00 7F 13 00 7F 14 00 7F 0D 00 7F 0E 00 7F 0F 00 7F 10 00 7F F7 
+```
 
-Preset4ChromaticFrom60  
+Preset4ChromaticFrom60
+```
 F0 47 7F 7C 61 00 66 04 09 00 04 0C 00 04 05 00 00 03 00 78 00 3C 00 01 00 3D 01 02 00 3E 02 03 00 3F 03 04 00 40 04 05 00 41 05 06 00 42 06 08 00 43 07 09 00 44 08 0A 00 45 09 0B 00 46 0A 0C 00 47 0B 0D 00 48 0C 0E 00 49 0D 0F 00 4A 0E 10 00 4B 0F 11 00 11 00 7F 12 00 7F 13 00 7F 14 00 7F 0D 00 7F 0E 00 7F 0F 00 7F 10 00 7F F7 
+```
 
-### Akai MPK Mini factory pressets
+### Akai MPK Mini originla factory pressets
+
+Original factory preset text file content, SysEx bytes are stored as decimal byte values separated by space, including one space at the end.
 
 Preset 1 Chromatic
 ```
