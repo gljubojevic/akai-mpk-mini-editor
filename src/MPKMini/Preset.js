@@ -96,6 +96,37 @@ class Preset {
 	get arpeggio() {
 		return this._arpeggio;
 	}
+
+	_loadPadsFromSysEx(sysEx, idx, pads) {
+		for (var i = 0; i < pads.length; i++) {
+			const offset = i * 4 + idx;
+			pads[i].note = sysEx[offset + 0];
+			pads[i].pc = sysEx[offset + 1];
+			pads[i].cc = sysEx[offset + 2];
+			pads[i].isToggle = sysEx[offset + 3] === 0x01;
+		}
+	}
+
+	_loadKnobsFromSysEx(sysEx, idx) {
+		for (var i = 0; i < this.knobs.length; i++) {
+			const offset = i * 3 + idx;
+			this.knobs[i].cc = sysEx[offset + 0];
+			this.knobs[i].lo = sysEx[offset + 1];
+			this.knobs[i].hi = sysEx[offset + 2];
+		}
+	}
+
+	loadFromSysEx(sysEx, name) {
+		this.name =  name || this.name;
+		this.padCh = sysEx[8];
+		this.keyKnobCh = sysEx[9];
+		this.keyOctave = sysEx[10];
+		this.keyTranspose = sysEx[11];
+		this.arpeggio.loadFromSysEx(sysEx);
+		this._loadPadsFromSysEx(sysEx, 21, this.padBank1);
+		this._loadPadsFromSysEx(sysEx, 53, this.padBank2);
+		this._loadKnobsFromSysEx(sysEx, 85);
+	}
 }
 
 export default Preset;

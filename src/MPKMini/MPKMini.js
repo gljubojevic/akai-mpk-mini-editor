@@ -63,35 +63,44 @@ class MPKMini {
 
 	}
 
-	msgToString(msg, isHex) {
+	sysExToString(sysEx, isHex) {
 		let str = '';
-		for (var i = 0; i < msg.length; i++) {
+		for (var i = 0; i < sysEx.length; i++) {
 			var byte;
 			if (isHex) {
-				byte = ('0' + msg[i].toString(16)).substr(-2);
+				byte = ('0' + sysEx[i].toString(16)).substr(-2);
 			} else {
-				byte = msg[i].toString(10);
+				byte = sysEx[i].toString(10);
 			}
 			str += byte.toUpperCase() + ' ';
 		}
 		return str;
 	}
 
-	parsePresetFile(name, data) {
+	parsePresetFile(data, name) {
 		const bytes = data.trim().split(' ');
 		let sysEx = new Uint8Array(bytes.length);
 		for (var i = 0; i < bytes.length; i++) {
 			sysEx[i] = parseInt(bytes[i], 10);
 		}
-		console.log(name, this.msgToString(sysEx, true));
+		//console.log(name, this.sysExToString(sysEx, true));
 		return sysEx;
 	}
 
 	factoryRestore(){
-		this.parsePresetFile('Preset1Chromatic', Preset1Chromatic);
-		this.parsePresetFile('Preset2WhiteKeys', Preset2WhiteKeys);
-		this.parsePresetFile('Preset3MPC', Preset3MPC);
-		this.parsePresetFile('Preset4ChromaticFrom60', Preset4ChromaticFrom60);
+		this.parsePresetFile(Preset1Chromatic, 'Preset1Chromatic');
+		this.parsePresetFile(Preset2WhiteKeys, 'Preset2WhiteKeys');
+		this.parsePresetFile(Preset3MPC, 'Preset3MPC');
+		let sysEx = this.parsePresetFile(Preset4ChromaticFrom60, 'Preset4ChromaticFrom60');
+		this.presetFromSysEx(sysEx, 'Preset4ChromaticFrom60')
+	}
+
+	presetFromSysEx(sysEx, name){
+		const preset = new Preset();
+		preset.loadFromSysEx(sysEx, name);
+		// Set Preset to editor
+		this._activePreset = sysEx[7] - 1;
+		this.preset = preset;
 	}
 }
 

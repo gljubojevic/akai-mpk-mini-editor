@@ -111,6 +111,18 @@ class ArpeggioPreset {
 	get swingOptions(){
 		return ['50%','55%','57%','59%','61%','64%'];
 	}
+
+	loadFromSysEx(sysEx) {
+		this.isEnabled = sysEx[12] === 0x01;
+		this.mode = sysEx[13];
+		this.timeDivision = sysEx[14];
+		this.isInternalSync = sysEx[15] === 0x00;
+		this.isLatch = sysEx[16] === 0x01;
+		this.tempoTaps = sysEx[17];
+		this.tempo = sysEx[18] * 128 + sysEx[19];
+		this.octave = sysEx[20]; 
+		// TODO: Swing for MPK Mini MK II
+	}
 }
 
 export default ArpeggioPreset;
