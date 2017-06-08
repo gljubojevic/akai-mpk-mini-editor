@@ -123,6 +123,19 @@ class ArpeggioPreset {
 		this.octave = sysEx[20]; 
 		// TODO: Swing for MPK Mini MK II
 	}
+
+	saveToSysEx(sysEx){
+		sysEx[12] = this.isEnabled ? 0x01 : 0x00;
+		sysEx[13] = this.mode;
+		sysEx[14] = this.timeDivision;
+		sysEx[15] = this.isInternalSync ? 0x00 : 0x01;
+		sysEx[16] = this.isLatch ? 0x01 : 0x00;
+		sysEx[17] = this.tempoTaps;
+		sysEx[18] = Math.floor(this.tempo / 128);
+		sysEx[19] = this.tempo % 128;
+		sysEx[20] =  this.octave;
+		// TODO: Swing for MPK Mini MK II
+	}
 }
 
 export default ArpeggioPreset;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Preset from '../MPKMini/Preset.js';
+import Preset from '../MPKMini/Preset';
 import * as midiutil from "../midi/utility"
 import './Keybed.css';
 

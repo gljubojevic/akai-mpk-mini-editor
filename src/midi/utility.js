@@ -13,3 +13,26 @@ export function noteValue(noteName) {
 	const o = parseInt(octave.match().input,10);
 	return o * 12 + noteNames.findIndex(x => x === n);
 }
+
+export function sysExToString(sysEx, isHex, separator) {
+	let str = '';
+	for (var i = 0; i < sysEx.length; i++) {
+		var byte;
+		if (isHex) {
+			byte = ('0' + sysEx[i].toString(16)).substr(-2);
+		} else {
+			byte = sysEx[i].toString(10);
+		}
+		str += byte.toUpperCase() + separator;
+	}
+	return str;
+}
+
+export function stringToSysEx(data, isHex, separator) {
+	const bytes = data.trim().split(separator);
+	let sysEx = new Uint8Array(bytes.length);
+	for (var i = 0; i < bytes.length; i++) {
+		sysEx[i] = parseInt(bytes[i], isHex ? 16 : 10);
+	}
+	return sysEx;
+}

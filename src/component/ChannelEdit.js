@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NumberInput from './NumberInput.js'
-import Preset from '../MPKMini/Preset.js'
+import Preset from '../MPKMini/Preset'
 import './ChannelEdit.css'
 
 class ChannelEdit extends Component {

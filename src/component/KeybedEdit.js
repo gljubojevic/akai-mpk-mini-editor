@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NumberInput from './NumberInput.js'
 import Keybed from './Keybed.js'
-import Preset from '../MPKMini/Preset.js';
+import Preset from '../MPKMini/Preset';
 import './KeybedEdit.css';
 
 class KeybedEdit extends Component {

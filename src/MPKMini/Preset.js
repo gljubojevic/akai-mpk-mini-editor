@@ -127,6 +127,36 @@ class Preset {
 		this._loadPadsFromSysEx(sysEx, 53, this.padBank2);
 		this._loadKnobsFromSysEx(sysEx, 85);
 	}
+
+	_savePadsToSysEx(sysEx, idx, pads) {
+		for (var i = 0; i < pads.length; i++) {
+			const offset = i * 4 + idx;
+			sysEx[offset + 0] = pads[i].note;
+			sysEx[offset + 1] = pads[i].pc;
+			sysEx[offset + 2] = pads[i].cc;
+			sysEx[offset + 3] = pads[i].isToggle ? 0x01 : 0x00;
+		}
+	}
+
+	_saveKnobsToSysEx(sysEx, idx) {
+		for (var i = 0; i < this.knobs.length; i++) {
+			const offset = i * 3 + idx;
+			sysEx[offset + 0] = this.knobs[i].cc;
+			sysEx[offset + 1] = this.knobs[i].lo;
+			sysEx[offset + 2] = this.knobs[i].hi;
+		}
+	}
+
+	saveToSysEx(sysEx) {
+		sysEx[8] = this.padCh;
+		sysEx[9] = this.keyKnobCh;
+		sysEx[10] = this.keyOctave;
+		sysEx[11] = this.keyTranspose;
+		this.arpeggio.saveToSysEx(sysEx);
+		this._savePadsToSysEx(sysEx, 21, this.padBank1);
+		this._savePadsToSysEx(sysEx, 53, this.padBank2);
+		this._saveKnobsToSysEx(sysEx, 85);
+	}
 }
 
 export default Preset;
