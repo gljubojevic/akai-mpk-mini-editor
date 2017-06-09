@@ -59,3 +59,17 @@ it('Note name to value', () => {
 
 	expect(midiutil.noteValue('G10')).toEqual(127);
 });
+
+it('sysExToString', () => {
+	const sysEx = new Uint8Array([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]);
+	expect(midiutil.sysExToString(sysEx, false, ' ')).toEqual('0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ');
+	expect(midiutil.sysExToString(sysEx, true, ' ')).toEqual('00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F ');
+});
+
+it('stringToSysEx', () => {
+	const strSysEx = '0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ';
+	const strSysExHex = '00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F ';
+	const sysEx = new Uint8Array([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]);
+	expect(midiutil.stringToSysEx(strSysEx, false, ' ')).toEqual(sysEx);
+	expect(midiutil.stringToSysEx(strSysExHex, true, ' ')).toEqual(sysEx);
+});

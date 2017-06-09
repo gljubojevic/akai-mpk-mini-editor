@@ -62,7 +62,7 @@ class MPKMini {
 	}
 
 	programSend(prg){
-		let sysExSend = new Uint16Array(110);
+		let sysExSend = new Uint8Array(110);
 		sysExSend.set(PresetSysExSend,0);
 		let idx = this._activePreset;
 		if (prg !== "0") {

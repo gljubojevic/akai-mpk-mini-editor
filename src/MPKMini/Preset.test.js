@@ -1,4 +1,5 @@
 import Preset from './Preset';
+import * as midiutil from "./../midi/utility"
 
 it('New preset', () => {
 	const p = new Preset();
@@ -7,9 +8,9 @@ it('New preset', () => {
 	expect(p.padCh).toEqual(1);
 	expect(p.keyOctave).toEqual(0);
 	expect(p.keyTranspose).toEqual(0);
-	testKnobs(p.knobs, 6);
-	testPadBank(p.padBank1, 6);
-	testPadBank(p.padBank2, 6);
+	testKnobs(p.knobs, 8);
+	testPadBank(p.padBank1, 8);
+	testPadBank(p.padBank2, 8);
 });
 
 function testKnobs(knobs, expLen) {
@@ -29,9 +30,34 @@ function testPadBank(padBank, expLen) {
 		expect(pp.note).toEqual(0);
 		expect(pp.pc).toEqual(0);
 		expect(pp.cc).toEqual(0);
-		expect(pp.isToggle).toEqual(false);
+		expect(pp.isToggle).toEqual(true);
 	}
 }
 
-// F0,47,7F,7C,61,00,66,04,09,00,04,0C,00,04,05,00,00,03,00,78,00,3C,00,01,00,3D,01,02,00,3E,02,03,00,3F,03,04,00,40,04,05,00,41,05,06,00,42,06,08,00,43,07,09,00,44,08,0A,00,45,09,0B,00,46,0A,0C,00,47,0B,0D,00,48,0C,0E,00,49,0D,0F,00,4A,0E,10,00,4B,0F,11,00,11,00,7F,12,00,7F,13,00,7F,14,00,7F,0D,00,7F,0E,00,7F,0F,00,7F,10,00,7F,F7
-// 0xf0,0x47,0x7f,0x7c,0x61,0x00,0x66,0x04,0x09,0x00,0x04,0x0c,0x00,0x04,0x05,0x00,0x00,0x03,0x00,0x78,0x00,0x3c,0x00,0x01,0x00,0x3d,0x01,0x02,0x00,0x3e,0x02,0x03,0x00,0x3f,0x03,0x04,0x00,0x40,0x04,0x05,0x00,0x41,0x05,0x06,0x00,0x42,0x06,0x08,0x00,0x43,0x07,0x09,0x00,0x44,0x08,0x0a,0x00,0x45,0x09,0x0b,0x00,0x46,0x0a,0x0c,0x00,0x47,0x0b,0x0d,0x00,0x48,0x0c,0x0e,0x00,0x49,0x0d,0x0f,0x00,0x4a,0x0e,0x10,0x00,0x4b,0x0f,0x11,0x00,0x11,0x00,0x7f,0x12,0x00,0x7f,0x13,0x00,0x7f,0x14,0x00,0x7f,0x0d,0x00,0x7f,0x0e,0x00,0x7f,0x0f,0x00,0x7f,0x10,0x00,0x7f,0xf7
+const testPreset = '240 71 127 124 97 0 102 4 9 0 4 12 0 4 5 0 0 3 0 120 0 60 0 1 0 61 1 2 0 62 2 3 0 63 3 4 0 64 4 5 0 65 5 6 0 66 6 8 0 67 7 9 0 68 8 10 0 69 9 11 0 70 10 12 0 71 11 13 0 72 12 14 0 73 13 15 0 74 14 16 0 75 15 17 0 17 0 127 18 0 127 19 0 127 20 0 127 13 0 127 14 0 127 15 0 127 16 0 127 247 ';
+
+it('Preset from to sysEx', () => {
+	const sysEx = midiutil.stringToSysEx(testPreset, false, ' ');
+	const p = new Preset();
+	p.loadFromSysEx(sysEx, 'test');
+
+	// Create new sysEx
+	let sysExSend = new Uint8Array(110);
+	sysExSend.set([0xF0, 0x47, 0x7F, 0x7C, 0x61, 0x00, 0x66, 0x00],0);
+	// Same preset number, not handled by preset
+	sysExSend[7] = sysEx[7];
+	// sysEx end
+	sysExSend[109] = 0xF7;
+
+	// Save from preset	
+	p.saveToSysEx(sysExSend);
+
+	// Equal bytes
+	expect(sysExSend).toEqual(sysEx);
+
+	// String version
+	const strPreset = midiutil.sysExToString(sysExSend, false, ' ');
+
+	// Equal string
+	expect(strPreset).toEqual(testPreset);
+});

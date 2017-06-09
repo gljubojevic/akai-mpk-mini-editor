@@ -96,7 +96,7 @@ Preset4ChromaticFrom60
 F0 47 7F 7C 61 00 66 04 09 00 04 0C 00 04 05 00 00 03 00 78 00 3C 00 01 00 3D 01 02 00 3E 02 03 00 3F 03 04 00 40 04 05 00 41 05 06 00 42 06 08 00 43 07 09 00 44 08 0A 00 45 09 0B 00 46 0A 0C 00 47 0B 0D 00 48 0C 0E 00 49 0D 0F 00 4A 0E 10 00 4B 0F 11 00 11 00 7F 12 00 7F 13 00 7F 14 00 7F 0D 00 7F 0E 00 7F 0F 00 7F 10 00 7F F7 
 ```
 
-### Akai MPK Mini originla factory pressets
+### Akai MPK Mini original factory pressets
 
 Original factory preset text file content, SysEx bytes are stored as decimal byte values separated by space, including one space at the end.
 

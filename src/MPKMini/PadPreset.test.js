@@ -5,7 +5,7 @@ it('New pad preset', () => {
 	expect(pp.note).toEqual(0);
 	expect(pp.pc).toEqual(0);
 	expect(pp.cc).toEqual(0);
-	expect(pp.isToggle).toEqual(false);
+	expect(pp.isToggle).toEqual(true);
 });
 
 it('New pad preset values', () => {
