@@ -15,16 +15,37 @@ class App extends Component {
 		this.state = {
 			MPKMini: new MPKMini()
 		}
-		this.handleProgramGet = this.handleProgramGet.bind(this);
-		this.handleProgramSend = this.handleProgramSend.bind(this);
+		this.handlePresetGet = this.handlePresetGet.bind(this);
+		this.handlePresetSend = this.handlePresetSend.bind(this);
+		this.handleCommand = this.handleCommand.bind(this);
 	}
 
-	handleProgramGet(prg) {
-		this.state.MPKMini.programGet(prg);
+	handlePresetGet(no) {
+		this.state.MPKMini.presetGet(no);
 	}
 
-	handleProgramSend(prg) {
-		this.state.MPKMini.programSend(prg);
+	handlePresetSend(no) {
+		this.state.MPKMini.presetSend(no);
+	}
+
+	handleCommand(cmd) {
+		switch (cmd) {
+			case "save":
+				this.state.MPKMini.presetSave();
+				break;
+
+			case "open":
+				this.state.MPKMini.presetOpen();
+				break;
+
+			case "restore":
+				this.state.MPKMini.factoryRestore();
+				break;
+		
+			default:
+				console.log("unsupported command:" + cmd);
+				break;
+		}
 	}
 
 	render() {
@@ -32,13 +53,15 @@ class App extends Component {
 			<div className="App">
 				<header><h1>Editor</h1></header>
 				<MainMenu
-					onProgramGet={this.handleProgramGet}
-					onProgramSend={this.handleProgramSend} />
+					onPresetGet={this.handlePresetGet}
+					onPresetSend={this.handlePresetSend}
+					onCommand={this.handleCommand} />
 				<div className="col1">
-					<ProgramManager 
-						hasRamProgram={this.state.MPKMini.hasRamPreset} 
-						onProgramGet={this.handleProgramGet} 
-						onProgramSend={this.handleProgramSend} />
+					<ProgramManager
+						presets={this.state.MPKMini.noPresets}
+						hasRamPreset={this.state.MPKMini.hasRamPreset} 
+						onPresetGet={this.handlePresetGet} 
+						onPresetSend={this.handlePresetSend} />
 				</div>
 				<div className="col2">
 					<KnobBank edit={true} label="Knobs" knobs={this.state.MPKMini.preset.knobs}/>

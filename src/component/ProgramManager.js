@@ -5,12 +5,12 @@ import './ProgramManager.css'
 class ProgramManager extends Component {
 	constructor(props, context) {
 		super(props, context);
-		let idx = Array.from(Array(props.programs), (_,x) => x+1); // program numbers are 1 to n
-		if (this.props.hasRamProgram) {
+		let idx = Array.from(Array(props.presets), (_,x) => x+1); // preset numbers are 1 to n
+		if (this.props.hasRamPreset) {
 			idx.push(0); // RAM program is 0 index
 		}
 		this.state = {
-			programIndex: idx
+			presetIndex: idx
 		}
 		this.handleGet = this.handleGet.bind(this);
 		this.handleSend = this.handleSend.bind(this);
@@ -18,21 +18,21 @@ class ProgramManager extends Component {
 
 	handleGet(e){
 		e.preventDefault();
-		const prg = e.target.dataset.prgno;
-		if (this.props.onProgramGet) {
-			this.props.onProgramGet(prg);
+		if (this.props.onPresetGet) {
+			const no = parseInt(e.target.dataset.prgno, 10);
+			this.props.onPresetGet(no);
 		}
 	}
 
 	handleSend(e){
 		e.preventDefault();
-		const prg = e.target.dataset.prgno;
-		if (this.props.onProgramSend) {
-			this.props.onProgramSend(prg);
+		if (this.props.onPresetSend) {
+			const no = parseInt(e.target.dataset.prgno, 10);
+			this.props.onPresetSend(no);
 		}
 	}
 
-	renderProgram(no){
+	renderPreset(no){
 		if (no === 0) {
 			return (
 				<li key={no} className="ram">
@@ -40,7 +40,7 @@ class ProgramManager extends Component {
 				</li>
 			);
 		}
-		const lbl = "Program " + no;
+		const lbl = "Preset " + no;
 		return(
 			<li key={no}>
 				<div><span>{lbl}</span></div>
@@ -51,35 +51,35 @@ class ProgramManager extends Component {
 	}
 
 	render() {
-		const prgMap = this.state.programIndex.map((no) => {
-			return this.renderProgram(no);
+		const pMap = this.state.presetIndex.map((no) => {
+			return this.renderPreset(no);
 		});
 		return (
 			<ul className="programManager">
-				{prgMap}
+				{pMap}
 			</ul>
 		);
 	}
 }
 
 ProgramManager.defaultProps = {
-	hasRamProgram: false,
-	programs: 4,
+	hasRamPreset: false,
+	presets: 0,
 	labelSend: "Send",
 	labelGet: "Get",
 	labelSendToRam: "Send to ram",
-	onProgramGet: null,
-	onProgramSend: null
+	onPresetGet: null,
+	onPresetSend: null
 };
 
 ProgramManager.propTypes = {
-	hasRamProgram: PropTypes.bool,
-	programs: PropTypes.number,
+	hasRamPreset: PropTypes.bool,
+	presets: PropTypes.number,
 	labelSend: PropTypes.string,
 	labelGet: PropTypes.string,
 	labelSendToRam: PropTypes.string,
-	onProgramGet: PropTypes.func,
-	onProgramSend: PropTypes.func
+	onPresetGet: PropTypes.func,
+	onPresetSend: PropTypes.func
 };
 
 export default ProgramManager;
