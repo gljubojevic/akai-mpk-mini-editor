@@ -49,7 +49,7 @@ class WebMIDI {
 		}
 		// New port is set
 		this._midiInput.onmidimessage = this.onMIDIMessage.bind(this);
-		console.log("MIDI input selected", this._midiInput.name, this._midiOutput.manufacturer);
+		console.log("MIDI input selected", this._midiInput.name, this._midiInput.manufacturer);
 		if (this._onInputSelected) {
 			this._onInputSelected(this._midiInput);
 		}
